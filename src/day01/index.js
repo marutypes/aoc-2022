@@ -1,37 +1,30 @@
 import run from "aocrunner";
 
-const parseInput = (rawInput) => rawInput;
+import { parseIntsOnNewline, sum, byDescendingValue } from "../utils.js";
+
+const parseInput = (rawInput) => {
+  return rawInput.split("\n\n").map(parseIntsOnNewline);
+};
 
 const part1 = (rawInput) => {
   const input = parseInput(rawInput);
-  const elves = input.split("\n\n");
 
-  const elvishCalorieSums = elves.map(elfToSum);
+  const [mostCalorific] = input
+    .map((elf) => elf.reduce(sum, 0))
+    .sort(byDescendingValue);
 
-  return Math.max(...elvishCalorieSums);
+  return mostCalorific;
 };
 
 const part2 = (rawInput) => {
   const input = parseInput(rawInput);
-  const elves = input.split("\n\n");
 
-  const elvishCalorieSums = elves.map(elfToSum);
-
-  const [first, second, third] = elvishCalorieSums.sort(sortByAscending);
+  const [first, second, third] = input
+    .map((elf) => elf.reduce(sum, 0))
+    .sort(byDescendingValue);
 
   return first + second + third;
 };
-
-function elfToSum(calories) {
-  return calories
-    .split("\n")
-    .map((string) => parseInt(string))
-    .reduce((next, sum) => next + sum, 0);
-}
-
-function sortByAscending(a, b) {
-  return b - a;
-}
 
 run({
   part1: {
