@@ -25,8 +25,8 @@
 
 /**
  * A factory function to create a parser for a list of ints separated by a given delimiter
- * @param {*} delimeter a string representing the delimeter to split on
- * @returns a function to parse a list of delimeter separated ints
+ * @param {string} delimeter a string representing the delimeter to split on
+ * @returns {function} a function to parse a list of delimeter separated ints
  */
 export function parseInts(delimeter = "\n") {
   return (input) => input.split(delimeter).map((string) => parseInt(string));
@@ -34,13 +34,15 @@ export function parseInts(delimeter = "\n") {
 
 /**
  * Parse a string containing ints separated by newline
- * @returns an array of ints
+ * @returns {number[]} array of ints
  */
 export const parseIntsOnNewline = parseInts("\n");
 
 /**
  * A reducer that sums the given values
- * @returns the sum
+ * @param {number} next the next item in the array
+ * @param {number} sum the sum so far
+ * @returns {number} the sum
  */
 export function sum(next, sum) {
   return next + sum;
@@ -48,7 +50,9 @@ export function sum(next, sum) {
 
 /**
  * A sort function that can be used to sort a list by descending value
- * @returns a negative number when a is larger than b, a positive number when b is larger than a, 0 when they are the same
+ * @param {number} a first item to compare
+ * @param {number} b second item to compare
+ * @returns {number} a negative number when a is larger than b, a positive number when b is larger than a, 0 when they are the same
  */
 export function byDescendingValue(a, b) {
   return b - a;

@@ -10,7 +10,7 @@ const part1 = (rawInput) => {
   const input = parseInput(rawInput);
 
   const [mostCalorific] = input
-    .map((elf) => elf.reduce(sum, 0))
+    .map((elfRations) => elfRations.reduce(sum, 0))
     .sort(byDescendingValue);
 
   return mostCalorific;
@@ -20,7 +20,7 @@ const part2 = (rawInput) => {
   const input = parseInput(rawInput);
 
   const [first, second, third] = input
-    .map((elf) => elf.reduce(sum, 0))
+    .map((elfRations) => elfRations.reduce(sum, 0))
     .sort(byDescendingValue);
 
   return first + second + third;
