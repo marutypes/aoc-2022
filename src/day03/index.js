@@ -8,7 +8,7 @@ const ASCII_OFFSET = -96;
 const CAPITAL_BONUS = 26;
 
 function getValueForChar(inputChar) {
-  const isCapital = inputChar.toUpperCase() == inputChar;
+  const isCapital = inputChar.toUpperCase() === inputChar;
   const aascii = inputChar.toLowerCase().charCodeAt(0);
   if (isCapital) {
     return aascii + ASCII_OFFSET + CAPITAL_BONUS;
@@ -26,8 +26,8 @@ const part1 = (rawInput) => {
     const second = rucksack.split("").slice(compartmentLength, rucksack.length);
 
     const commonValue = first.find((value) => {
-      const hasCommon = second.find((v) => v == value);
-      return Boolean(hasCommon);
+      const hasCommon = second.find((v) => v === value);
+      return hasCommon != undefined;
     });
 
     return commonValue;
@@ -45,7 +45,7 @@ const part2 = (rawInput) => {
     const [first, second, third] = group.map((a) => a.split(""));
 
     const commonValue = first.find((value) => {
-      return second.some((v) => v == value) && third.some((v) => v == value);
+      return second.some((v) => v == value) && third.some((v) => v === value);
     });
 
     return commonValue;
