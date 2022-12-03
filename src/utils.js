@@ -57,3 +57,11 @@ export function sum(next, sum) {
 export function byDescendingValue(a, b) {
   return b - a;
 }
+
+export function splitIntoSlices(array, sliceSize) {
+  const slices = [];
+  for (let i = 0; i < array.length; i += sliceSize) {
+    slices.push(array.slice(i, i + sliceSize));
+  }
+  return slices;
+}

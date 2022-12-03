@@ -1,18 +1,18 @@
-import run from "aocrunner"
+import run from "aocrunner";
 
-const parseInput = (rawInput) => rawInput
+const parseInput = (rawInput) => rawInput;
 
 const part1 = (rawInput) => {
-  const input = parseInput(rawInput)
+  const input = parseInput(rawInput);
 
-  return
-}
+  return;
+};
 
 const part2 = (rawInput) => {
-  const input = parseInput(rawInput)
+  const input = parseInput(rawInput);
 
-  return
-}
+  return;
+};
 
 run({
   part1: {
@@ -34,5 +34,5 @@ run({
     solution: part2,
   },
   trimTestInputs: true,
-  onlyTests: false,
-})
+  onlyTests: true,
+});
