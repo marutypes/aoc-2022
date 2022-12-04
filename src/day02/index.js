@@ -62,9 +62,11 @@ function score(myShape, opponentShape) {
   return RPS[myShape].score + resultScore;
 }
 
-const parseInput = (rawInput) => rawInput.split("\n");
+function parseInput(rawInput) {
+  return rawInput.split("\n");
+}
 
-const part1 = (rawInput) => {
+function part1(rawInput) {
   const rounds = parseInput(rawInput);
 
   return rounds
@@ -74,9 +76,9 @@ const part1 = (rawInput) => {
     })
     .map(([opponentShape, myShape]) => score(myShape, opponentShape))
     .reduce(sum);
-};
+}
 
-const part2 = (rawInput) => {
+function part2(rawInput) {
   const rounds = parseInput(rawInput);
 
   return rounds
@@ -92,7 +94,7 @@ const part2 = (rawInput) => {
     })
     .map(([opponentShape, myShape]) => score(myShape, opponentShape))
     .reduce(sum);
-};
+}
 
 run({
   part1: {

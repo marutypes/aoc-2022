@@ -2,11 +2,11 @@ import run from "aocrunner";
 
 import { parseIntsOnNewline, sum, byDescendingValue } from "../utils.js";
 
-const parseInput = (rawInput) => {
+function parseInput(rawInput) {
   return rawInput.split("\n\n").map(parseIntsOnNewline);
-};
+}
 
-const part1 = (rawInput) => {
+function part1(rawInput) {
   const input = parseInput(rawInput);
 
   const [mostCalorific] = input
@@ -14,9 +14,9 @@ const part1 = (rawInput) => {
     .sort(byDescendingValue);
 
   return mostCalorific;
-};
+}
 
-const part2 = (rawInput) => {
+function part2(rawInput) {
   const input = parseInput(rawInput);
 
   const [first, second, third] = input
@@ -24,7 +24,7 @@ const part2 = (rawInput) => {
     .sort(byDescendingValue);
 
   return first + second + third;
-};
+}
 
 run({
   part1: {

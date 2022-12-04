@@ -2,7 +2,9 @@ import run from "aocrunner";
 
 import { sum, splitIntoSlices } from "../utils.js";
 
-const parseInput = (rawInput) => rawInput.split("\n").map((i) => i.trim());
+function parseInput(rawInput) {
+  return rawInput.split("\n").map((i) => i.trim());
+}
 
 const ASCII_OFFSET = -96;
 const CAPITAL_BONUS = 26;
@@ -16,7 +18,7 @@ function getValueForChar(inputChar) {
   return aascii + ASCII_OFFSET;
 }
 
-const part1 = (rawInput) => {
+function part1(rawInput) {
   const input = parseInput(rawInput);
 
   const commonItems = input.map((rucksack) => {
@@ -34,9 +36,9 @@ const part1 = (rawInput) => {
   });
 
   return commonItems.map(getValueForChar).reduce(sum);
-};
+}
 
-const part2 = (rawInput) => {
+function part2(rawInput) {
   const input = parseInput(rawInput);
 
   const groups = splitIntoSlices(input, 3);
@@ -52,7 +54,7 @@ const part2 = (rawInput) => {
   });
 
   return commonItems.map(getValueForChar).reduce(sum);
-};
+}
 
 run({
   part1: {
